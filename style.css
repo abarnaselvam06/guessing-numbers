@@ -1,0 +1,545 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 35px 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 10% 30%, #bd29ff 0%, transparent 30%),
+        radial-gradient(circle at 90% 20%, #087bff 0%, transparent 35%),
+        radial-gradient(circle at 50% 100%, #7423ff 0%, transparent 45%),
+        linear-gradient(135deg, #100044, #10136c, #071b5a);
+
+    color: white;
+}
+
+/* MAIN GAME CONTAINER */
+
+.game-container {
+    width: 100%;
+    max-width: 650px;
+    padding: 30px;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* HEADING */
+
+h1 {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: white;
+
+    text-shadow: 0 0 12px #d7a2ff, 0 0 25px #8c35ff;
+
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #f1dcff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    margin-bottom: 25px;
+}
+
+/* COMMON CARDS */
+
+.range-section,
+.game-info,
+.guess-section,
+.history-section,
+.stats-section {
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+
+    background: linear-gradient(135deg, #f5eaff, #d8c8ff);
+
+    color: #241064;
+
+    border: 2px solid rgba(255, 255, 255, 0.6);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    color: #29106f;
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* NUMBER RANGE */
+
+.range-inputs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.range-inputs input {
+    width: 50%;
+    min-width: 0;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+
+    border: 2px solid #c6aaff;
+    border-radius: 11px;
+
+    background: white;
+    color: #28105f;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 12px;
+
+    transition: 0.25s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #8b24ff;
+    box-shadow: 0 0 0 4px rgba(139, 36, 255, 0.15);
+}
+
+/* BUTTONS */
+
+button {
+    border: none;
+    border-radius: 12px;
+
+    padding: 13px 18px;
+    margin: 5px 0;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    color: white;
+
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #a500ff, #5900c9);
+
+    box-shadow: 0 5px 12px rgba(70, 0, 160, 0.35);
+
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(100, 0, 200, 0.45);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:disabled {
+    background: #999;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#setRangeBtn,
+#guessBtn,
+#restartBtn {
+    width: 100%;
+}
+
+/* RANGE MESSAGE */
+
+#rangeMessage {
+    color: #138b35;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* GAME DASHBOARD */
+
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    background: linear-gradient(135deg, #39209a, #101e76);
+
+    color: white;
+    border-color: #9566ff;
+}
+
+.game-info p {
+    text-align: center;
+    padding: 12px 5px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.game-info span {
+    display: block;
+    color: #ffe36c;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+/* GUESS SECTION */
+
+.guess-section {
+    text-align: center;
+}
+
+#guessInput {
+    text-align: center;
+    font-size: 19px;
+    padding: 15px;
+}
+
+#guessBtn {
+    background: linear-gradient(135deg, #a500ff, #5c00c9);
+    font-size: 16px;
+}
+
+#hintBtn {
+    width: 100%;
+
+    background: linear-gradient(135deg, #ffda32, #ff9500);
+
+    color: #35105c;
+    font-size: 15px;
+
+    margin-top: 10px;
+}
+
+/* FEEDBACK MESSAGE */
+
+#message {
+    min-height: 35px;
+
+    margin-top: 18px;
+    padding: 12px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #f3caff, #e4b9ff);
+
+    color: #421080;
+
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+/* GUESS HISTORY */
+
+#history {
+    list-style: none;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#history li {
+    background: white;
+    color: #35106d;
+
+    padding: 9px 12px;
+    border-radius: 9px;
+
+    margin-bottom: 7px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* GAME STATISTICS */
+
+.stats-section p {
+    color: #35106d;
+
+    padding: 7px 0;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border-bottom: 1px solid #d7c4ff;
+}
+
+/* RESTART BUTTON */
+
+#restartBtn {
+    background: linear-gradient(135deg, #20e65a, #009d3e);
+
+    border: 2px solid #baffc8;
+    border-radius: 30px;
+
+    padding: 15px;
+    font-size: 16px;
+
+    box-shadow: 0 6px 20px rgba(0, 220, 80, 0.3);
+}
+
+#restartBtn:hover {
+    box-shadow: 0 8px 25px rgba(0, 220, 80, 0.5);
+}
+
+/* SCROLLBAR */
+
+#history::-webkit-scrollbar {
+    width: 6px;
+}
+
+#history::-webkit-scrollbar-thumb {
+    background: #9d66ff;
+    border-radius: 10px;
+}
+
+/* WINNING SCREEN */
+
+.win-screen {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    overflow-y: auto;
+
+    background:
+        radial-gradient(circle at center, #773cff, transparent 55%),
+        linear-gradient(135deg, #100044, #10136c, #071b5a);
+}
+
+.win-card {
+    width: 100%;
+    max-width: 480px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #fff1ff, #d9c4ff);
+
+    color: #291064;
+
+    border: 3px solid white;
+
+    box-shadow: 0 0 40px rgba(190, 120, 255, 0.7);
+
+    animation: winAppear 0.6s ease;
+}
+
+@keyframes winAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* TROPHY */
+
+.trophy {
+    font-size: 95px;
+    margin-bottom: 15px;
+
+    animation: trophyBounce 1.5s infinite;
+}
+
+@keyframes trophyBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* CONFETTI */
+
+.confetti {
+    font-size: 25px;
+    margin-bottom: 12px;
+    letter-spacing: 8px;
+}
+
+.congrats-banner {
+    padding: 17px 10px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #ffda36, #ff9800);
+
+    color: #6a1900;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    box-shadow: 0 6px 15px rgba(255, 150, 0, 0.3);
+}
+
+.win-card h2 {
+    font-size: 18px;
+    margin: 22px 0;
+    color: #351078;
+}
+
+/* CORRECT NUMBER */
+
+.winning-number {
+    display: inline-block;
+
+    min-width: 170px;
+    padding: 12px 25px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(135deg, #9e00ff, #5100bd);
+
+    color: white;
+
+    font-size: 55px;
+    font-weight: 800;
+
+    box-shadow: 0 8px 20px rgba(90, 0, 190, 0.35);
+}
+
+/* WINNING DETAILS */
+
+.win-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    margin: 22px 0;
+    padding: 18px;
+
+    border-radius: 15px;
+    background: #d8baff;
+}
+
+.win-details p {
+    font-size: 13px;
+    font-weight: 700;
+    color: #351078;
+}
+
+.win-details span {
+    font-weight: 800;
+}
+
+.thanks {
+    margin: 18px 0;
+    font-weight: 700;
+    color: #4a168f;
+}
+
+/* PLAY AGAIN */
+
+#playAgainBtn {
+    width: 85%;
+
+    padding: 16px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #24e65b, #009b3d);
+
+    border: 2px solid white;
+
+    font-size: 17px;
+    font-weight: 800;
+
+    box-shadow: 0 6px 18px rgba(0, 180, 60, 0.3);
+}
+
+#playAgainBtn:hover {
+    transform: scale(1.05);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px 8px;
+    }
+
+    .game-container {
+        padding: 16px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .game-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .win-card {
+        padding: 25px 15px;
+    }
+
+    .congrats-banner {
+        font-size: 20px;
+    }
+
+    .trophy {
+        font-size: 75px;
+    }
+
+    .winning-number {
+        font-size: 45px;
+    }
+}

@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Number Guessing Game</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- MAIN GAME SCREEN -->
+
+    <div class="game-container" id="gameContainer">
+
+        <h1>🎯 Number Guessing Game</h1>
+
+        <p class="subtitle">
+            Think... Guess... Win!
+        </p>
+
+        <!-- NUMBER RANGE -->
+
+        <div class="range-section">
+
+            <h3>⚙️ Choose Your Number Range</h3>
+
+            <div class="range-inputs">
+
+                <input
+                    type="number"
+                    id="minNumber"
+                    value="1"
+                    placeholder="Minimum"
+                >
+
+                <input
+                    type="number"
+                    id="maxNumber"
+                    value="100"
+                    placeholder="Maximum"
+                >
+
+            </div>
+
+            <button id="setRangeBtn">
+                Set Number Range
+            </button>
+
+            <p id="rangeMessage">
+                Your default range is 1 to 100
+            </p>
+
+        </div>
+
+        <!-- GAME DASHBOARD -->
+
+        <div class="game-info">
+
+            <p>
+                🔢 Number Range
+                <span id="rangeDisplay">1 - 100</span>
+            </p>
+
+            <p>
+                ⏱️ Time
+                <span id="timer">0s</span>
+            </p>
+
+            <p>
+                ⭐ Score
+                <span id="score">100</span>
+            </p>
+
+            <p>
+                🏆 Best Score
+                <span id="bestScore">0</span>
+            </p>
+
+            <p>
+                🎯 Attempts
+                <span id="attempts">0</span>
+            </p>
+
+        </div>
+
+        <!-- GUESS SECTION -->
+
+        <div class="guess-section">
+
+            <h3>Enter Your Guess</h3>
+
+            <input
+                type="number"
+                id="guessInput"
+                placeholder="Enter your number"
+            >
+
+            <button id="guessBtn">
+                ✔ Check Guess
+            </button>
+
+            <button id="hintBtn">
+                💡 Get Hint
+            </button>
+
+            <h3 id="message">
+                Start guessing!
+            </h3>
+
+        </div>
+
+        <!-- GUESS HISTORY -->
+
+        <div class="history-section">
+
+            <h3>🕒 Guess History</h3>
+
+            <ul id="history"></ul>
+
+        </div>
+
+        <!-- GAME STATISTICS -->
+
+        <div class="stats-section">
+
+            <h3>📊 Game Statistics</h3>
+
+            <p>
+                Games Played:
+                <span id="gamesPlayed">0</span>
+            </p>
+
+            <p>
+                Games Won:
+                <span id="gamesWon">0</span>
+            </p>
+
+            <p>
+                Total Attempts:
+                <span id="totalAttempts">0</span>
+            </p>
+
+            <p>
+                Hints Used:
+                <span id="hintsUsed">0</span>
+            </p>
+
+        </div>
+
+        <button id="restartBtn">
+            🔄 Restart Game
+        </button>
+
+    </div>
+
+
+    <!-- WINNING CELEBRATION SCREEN -->
+
+    <div id="winScreen" class="win-screen">
+
+        <div class="win-card">
+
+            <div class="confetti">
+                🎊 ✨ 🎉 ⭐ 🎊
+            </div>
+
+            <div class="trophy">
+                🏆
+            </div>
+
+            <div class="congrats-banner">
+                🎉 Congratulations! 🎉
+            </div>
+
+            <h2>
+                You guessed the correct number!
+            </h2>
+
+            <div class="winning-number" id="winningNumber">
+                75
+            </div>
+
+            <div class="win-details">
+
+                <p>
+                    ⭐ Your Score:
+                    <span id="finalScore">100</span>
+                </p>
+
+                <p>
+                    🏆 Best Score:
+                    <span id="finalBestScore">100</span>
+                </p>
+
+                <p>
+                    🎯 Attempts:
+                    <span id="finalAttempts">1</span>
+                </p>
+
+                <p>
+                    ⏱️ Time:
+                    <span id="finalTime">0</span>s
+                </p>
+
+            </div>
+
+            <p class="thanks">
+                Thanks for playing! 🎉
+            </p>
+
+            <button id="playAgainBtn">
+                🔄 Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
